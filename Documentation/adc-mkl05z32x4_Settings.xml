@@ -187,10 +187,10 @@ PE_DEBUGHALT();
       </group>
       <group name="Interrupts/DMA">
         <Interrupt v="INT_ADC0" />
-        <Interrupt_request v="Disabled" />
+        <Interrupt_request v="Enabled" />
         <Interrupt_priority v="0 (Highest)" />
-        <ISR_name v="" />
-        <Conversion_complete_A_interrupt v="Disabled" />
+        <ISR_name v="adcISR" />
+        <Conversion_complete_A_interrupt v="Enabled" />
         <Conversion_complete_B_interrupt v="Disabled" />
         <DMA_request v="Disabled" />
       </group>

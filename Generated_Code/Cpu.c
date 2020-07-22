@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL05P48M48SF1RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2020-07-22, 16:35, # CodeGen: 10
+**     Date/Time   : 2020-07-22, 16:58, # CodeGen: 12
 **     Abstract    :
 **
 **     Settings    :
@@ -463,6 +463,8 @@ void PE_low_level_init(void)
   /* Common initialization of the CPU registers */
   /* PORTB_PCR0: ISF=0,MUX=0 */
   PORTB_PCR0 &= (uint32_t)~(uint32_t)((PORT_PCR_ISF_MASK | PORT_PCR_MUX(0x07)));
+  /* NVIC_ISER: SETENA|=0x8000 */
+  NVIC_ISER |= NVIC_ISER_SETENA(0x8000);
   /* NVIC_IPR3: PRI_15=0 */
   NVIC_IPR3 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_15(0xFF));
   /* PORTB_PCR8: ISF=0,MUX=1,PS=0 */

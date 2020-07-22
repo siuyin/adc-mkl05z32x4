@@ -7,7 +7,7 @@
 **     Version     : Component 01.012, Driver 01.12, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2020-07-22, 16:08, # CodeGen: 9
+**     Date/Time   : 2020-07-22, 16:58, # CodeGen: 12
 **     Abstract    :
 **          This file implements the ADC (ADC0) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -83,10 +83,10 @@
 **            Trigger B                                    : Disabled
 **          Interrupts/DMA                                 : 
 **            Interrupt                                    : INT_ADC0
-**            Interrupt request                            : Disabled
+**            Interrupt request                            : Enabled
 **            Interrupt priority                           : 0 (Highest)
-**            ISR name                                     : 
-**            Conversion complete A interrupt              : Disabled
+**            ISR name                                     : adcISR
+**            Conversion complete A interrupt              : Enabled
 **            Conversion complete B interrupt              : Disabled
 **            DMA request                                  : Disabled
 **          Initialization                                 : 
@@ -174,6 +174,13 @@
 ** ===================================================================
 */
 void ADC0_Init(void);
+/*
+** ===================================================================
+** The interrupt service routine must be implemented by user in one
+** of the user modules (see ADC0.c file for more information).
+** ===================================================================
+*/
+PE_ISR(adcISR);
 
 
 /* END ADC0. */

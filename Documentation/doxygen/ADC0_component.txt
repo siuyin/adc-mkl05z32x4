@@ -40,7 +40,7 @@ by the component.
 <td class="regNotResetVal">0x00000007</td>
  <td>ADC0_SC3 register, peripheral ADC0.</td></tr>
 <tr><td>0x4003B000</td><td>ADC0_SC1A</td>
-<td class="regResetVal">0x0000001F</td>
+<td class="regNotResetVal">0x0000005F</td>
  <td>ADC0_SC1A register, peripheral ADC0.</td></tr>
 <tr><td>0x4003B004</td><td>ADC0_SC1B</td>
 <td class="regResetVal">0x0000001F</td>
@@ -520,11 +520,11 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4003B000</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000001F</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000005F</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x0000001F</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>7</td><td>COCO</td><td>0x00</td><td>Conversion Complete Flag</td>
-<tr><td>6</td><td>AIEN</td><td>0x00</td><td>Interrupt Enable</td>
+<tr><td>6</td><td>AIEN</td><td>0x01</td><td>Interrupt Enable</td>
 <tr><td>0 - 4</td><td>ADCH</td><td>0x10</td><td>Input channel select</td>
 </tr></table>
 <div class="reghdr1">ADC0_SC1B</div>
@@ -654,10 +654,10 @@ registers of the peripheral(s) configured by the component.
 **            Trigger B                                    : Disabled
 **          Interrupts/DMA                                 : 
 **            Interrupt                                    : INT_ADC0
-**            Interrupt request                            : Disabled
+**            Interrupt request                            : Enabled
 **            Interrupt priority                           : 0 (Highest)
-**            ISR name                                     : 
-**            Conversion complete A interrupt              : Disabled
+**            ISR name                                     : adcISR
+**            Conversion complete A interrupt              : Enabled
 **            Conversion complete B interrupt              : Disabled
 **            DMA request                                  : Disabled
 **          Initialization                                 : 

@@ -7,7 +7,7 @@
 **     Version     : Component 01.012, Driver 01.12, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2020-07-22, 16:08, # CodeGen: 9
+**     Date/Time   : 2020-07-22, 16:58, # CodeGen: 12
 **     Abstract    :
 **          This file implements the ADC (ADC0) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -83,10 +83,10 @@
 **            Trigger B                                    : Disabled
 **          Interrupts/DMA                                 : 
 **            Interrupt                                    : INT_ADC0
-**            Interrupt request                            : Disabled
+**            Interrupt request                            : Enabled
 **            Interrupt priority                           : 0 (Highest)
-**            ISR name                                     : 
-**            Conversion complete A interrupt              : Disabled
+**            ISR name                                     : adcISR
+**            Conversion complete A interrupt              : Enabled
 **            Conversion complete B interrupt              : Disabled
 **            DMA request                                  : Disabled
 **          Initialization                                 : 
@@ -193,11 +193,33 @@ void ADC0_Init(void)
   ADC0_SC2 = ADC_SC2_REFSEL(0x01);
   /* ADC0_SC3: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CAL=0,CALF=0,??=0,??=0,ADCO=0,AVGE=1,AVGS=3 */
   ADC0_SC3 = (ADC_SC3_AVGE_MASK | ADC_SC3_AVGS(0x03));
-  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=0,??=0,ADCH=0x1F */
-  ADC0_SC1A = ADC_SC1_ADCH(0x1F);
+  /* ADC0_SC1A: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=1,??=0,ADCH=0x1F */
+  ADC0_SC1A = (ADC_SC1_AIEN_MASK | ADC_SC1_ADCH(0x1F));
   /* ADC0_SC1B: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,COCO=0,AIEN=0,??=0,ADCH=0x1F */
   ADC0_SC1B = ADC_SC1_ADCH(0x1F);
 }
+
+/*
+** ###################################################################
+**
+**  The interrupt service routine(s) must be implemented
+**  by user in one of the following user modules.
+**
+**  If the "Generate ISR" option is enabled, Processor Expert generates
+**  ISR templates in the CPU event module.
+**
+**  User modules:
+**      main.c
+**      Events.c
+**
+** ###################################################################
+PE_ISR(adcISR)
+{
+// NOTE: The routine should include actions to clear the appropriate
+//       interrupt flags.
+//
+}
+*/
 
 
 /* END ADC0. */
