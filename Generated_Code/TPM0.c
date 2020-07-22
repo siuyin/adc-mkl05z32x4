@@ -7,7 +7,7 @@
 **     Version     : Component 01.002, Driver 01.02, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2020-07-23, 00:49, # CodeGen: 27
+**     Date/Time   : 2020-07-23, 01:01, # CodeGen: 30
 **     Abstract    :
 **          This file implements the TPM (TPM0) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -21,8 +21,8 @@
 **              Clock source                               : TPM counter clock
 **              Prescaler                                  : divide by 1
 **              Counter frequency                          : 47.972 MHz
-**              Modulo counter                             : 65535
-**              Period                                     : 1.366 ms
+**              Modulo counter                             : 4096
+**              Period                                     : 170.765 us
 **            DBG mode                                     : TPM counter stopped; output pins remain the same
 **            Global time base                             : Disabled
 **            Counter reload on trigger                    : Disabled
@@ -33,7 +33,7 @@
 **            Channel 0                                    : Disabled
 **            Channel 1                                    : Disabled
 **            Channel 2                                    : Enabled
-**              Channel mode                               : Edge-aligned PWM
+**              Channel mode                               : Center-aligned PWM
 **                PWM polarity                             : Low-true
 **                Channel value register                   : 0x8000
 **              Pin                                        : Enabled
@@ -149,8 +149,12 @@ void TPM0_Init(void)
   TPM0_C4SC = TPM_CnSC_CHF_MASK;
   /* TPM0_C5SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=1,CHIE=0,MSB=0,MSA=0,ELSB=0,ELSA=0,??=0,DMA=0 */
   TPM0_C5SC = TPM_CnSC_CHF_MASK;
-  /* TPM0_SC: TOF=0,CPWMS=0 */
-  TPM0_SC &= (uint32_t)~(uint32_t)((TPM_SC_TOF_MASK | TPM_SC_CPWMS_MASK));
+  /* TPM0_SC: TOF=0,CPWMS=1 */
+  TPM0_SC = (uint32_t)((TPM0_SC & (uint32_t)~(uint32_t)(
+             TPM_SC_TOF_MASK
+            )) | (uint32_t)(
+             TPM_SC_CPWMS_MASK
+            ));
   /* TPM0_CONF: CROT=0,CSOO=0,CSOT=0,GTBEEN=0,DBGMODE=0,DOZEEN=0 */
   TPM0_CONF &= (uint32_t)~(uint32_t)(
                 TPM_CONF_CROT_MASK |
@@ -209,19 +213,23 @@ void TPM0_Init(void)
                );
   /* TPM0_C2V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0x8000 */
   TPM0_C2V = TPM_CnV_VAL(0x8000);
-  /* TPM0_MOD: MOD=0xFFFF */
-  TPM0_MOD |= TPM_MOD_MOD(0xFFFF);
+  /* TPM0_MOD: MOD=0x1000 */
+  TPM0_MOD = (uint32_t)((TPM0_MOD & (uint32_t)~(uint32_t)(
+              TPM_MOD_MOD(0xEFFF)
+             )) | (uint32_t)(
+              TPM_MOD_MOD(0x1000)
+             ));
   /* TPM0_CNT: COUNT=0 */
   TPM0_CNT &= (uint32_t)~(uint32_t)(TPM_CNT_COUNT(0xFFFF));
-  /* TPM0_SC: DMA=0,TOF=1,TOIE=0,CPWMS=0,CMOD=1,PS=0 */
+  /* TPM0_SC: DMA=0,TOF=1,TOIE=0,CPWMS=1,CMOD=1,PS=0 */
   TPM0_SC = (uint32_t)((TPM0_SC & (uint32_t)~(uint32_t)(
              TPM_SC_DMA_MASK |
              TPM_SC_TOIE_MASK |
-             TPM_SC_CPWMS_MASK |
              TPM_SC_CMOD(0x02) |
              TPM_SC_PS(0x07)
             )) | (uint32_t)(
              TPM_SC_TOF_MASK |
+             TPM_SC_CPWMS_MASK |
              TPM_SC_CMOD(0x01)
             ));
 }

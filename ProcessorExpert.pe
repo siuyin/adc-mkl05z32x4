@@ -3,7 +3,7 @@
   <Header>
     <Name>adc-mkl05z32x4</Name>
     <SavedBy>siuyin</SavedBy>
-    <ModificationStamp>28</ModificationStamp>
+    <ModificationStamp>31</ModificationStamp>
     <Date>2020-07-22</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1550-0615</PEversion>
@@ -13288,12 +13288,12 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>65535</Value>
+        <Value>4096</Value>
         <Base>DEC</Base>
       </ItemState>
       <ItemState>
         <ItemSymbol>Period</ItemSymbol>
-        <Value>1.366 ms</Value>
+        <Value>170.765 us</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>BDMMODE</ItemSymbol>
@@ -13614,7 +13614,7 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>2</Index>
+        <Index>3</Index>
         <Expanded>true</Expanded>
       </ItemState>
       <ItemState>

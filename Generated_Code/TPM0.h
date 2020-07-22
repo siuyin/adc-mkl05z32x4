@@ -7,7 +7,7 @@
 **     Version     : Component 01.002, Driver 01.02, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2020-07-23, 00:49, # CodeGen: 27
+**     Date/Time   : 2020-07-23, 01:01, # CodeGen: 30
 **     Abstract    :
 **          This file implements the TPM (TPM0) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -21,8 +21,8 @@
 **              Clock source                               : TPM counter clock
 **              Prescaler                                  : divide by 1
 **              Counter frequency                          : 47.972 MHz
-**              Modulo counter                             : 65535
-**              Period                                     : 1.366 ms
+**              Modulo counter                             : 4096
+**              Period                                     : 170.765 us
 **            DBG mode                                     : TPM counter stopped; output pins remain the same
 **            Global time base                             : Disabled
 **            Counter reload on trigger                    : Disabled
@@ -33,7 +33,7 @@
 **            Channel 0                                    : Disabled
 **            Channel 1                                    : Disabled
 **            Channel 2                                    : Enabled
-**              Channel mode                               : Edge-aligned PWM
+**              Channel mode                               : Center-aligned PWM
 **                PWM polarity                             : Low-true
 **                Channel value register                   : 0x8000
 **              Pin                                        : Enabled

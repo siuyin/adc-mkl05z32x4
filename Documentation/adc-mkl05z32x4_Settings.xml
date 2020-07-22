@@ -334,8 +334,8 @@ PE_DEBUGHALT();
           <Clock_source v="TPM counter clock" />
           <Prescaler v="divide by 1" />
           <Counter_frequency v="47.972 MHz" />
-          <Modulo_counter v="65535" />
-          <Period v="1.366 ms" />
+          <Modulo_counter v="4096" />
+          <Period v="170.765 us" />
         </group>
         <DBG_mode v="TPM counter stopped; output pins remain the same" />
         <Global_time_base v="Disabled" />
@@ -348,7 +348,7 @@ PE_DEBUGHALT();
         <boolgroup name="Channel 0" v="Disabled" />
         <boolgroup name="Channel 1" v="Disabled" />
         <boolgroup name="Channel 2" v="Enabled">
-          <enumgroup name="Channel mode" v="Edge-aligned PWM">
+          <enumgroup name="Channel mode" v="Center-aligned PWM">
             <PWM_polarity v="Low-true" />
             <Channel_value_register v="32768" />
           </enumgroup>

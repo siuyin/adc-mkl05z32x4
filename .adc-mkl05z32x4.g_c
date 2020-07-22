@@ -310,7 +310,7 @@
     </GenFiles>
     <SignalListFile>Documentation\adc-mkl05z32x4_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>28</ProjectModificationStamp>
+    <ProjectModificationStamp>31</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>true</Generated>
@@ -497,8 +497,8 @@
     <GenComponentVersion>01.002</GenComponentVersion>
     <GenDriverVersion>01.02</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1358366252</HeaderAge>
-    <CodeAge>1358366252</CodeAge>
+    <HeaderAge>1358366792</HeaderAge>
+    <CodeAge>1358366792</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>1</GenNumMethods>
     <Init>true</Init>
@@ -520,7 +520,7 @@
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
       <LineBeg>120</LineBeg>
-      <LineEnd>226</LineEnd>
+      <LineEnd>234</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>1</GenExtraFilesCount>
     <ExtraFile0>Documentation\doxygen\TPM0_component.txt</ExtraFile0>
