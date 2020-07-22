@@ -302,7 +302,7 @@
     </GenFiles>
     <SignalListFile>Documentation\adc-mkl05z32x4_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>GNUC</DestinationCompiler>
-    <ProjectModificationStamp>9</ProjectModificationStamp>
+    <ProjectModificationStamp>10</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>true</Generated>
@@ -387,8 +387,8 @@
     <GenComponentVersion>01.012</GenComponentVersion>
     <GenDriverVersion>01.12</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1358328572</HeaderAge>
-    <CodeAge>1358328572</CodeAge>
+    <HeaderAge>1358332174</HeaderAge>
+    <CodeAge>1358332174</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>1</GenNumMethods>
     <Init>true</Init>

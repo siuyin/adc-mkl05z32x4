@@ -125,16 +125,16 @@ PE_DEBUGHALT();
           <Long_sample_time_length v="20 ADCK cycles" />
         </group>
         <Conversion_mode v="Single" />
-        <Result_data_format v="8-bit right" />
+        <Result_data_format v="12-bit right" />
         <Low_power_mode v="Disabled" />
         <Conversion_trigger v="SW" />
         <group name="HW average settings">
           <HW_average v="Enabled" />
           <HW_average_length v="32 samples" />
         </group>
-        <Single_conversion_time___Single_ended v="427.52 us" />
+        <Single_conversion_time___Single_ended v="501.36 us" />
         <Single_conversion_time___Differential v="Differential mode not supported" />
-        <Additional_conversion_time___Single_ended v="418.46 us" />
+        <Additional_conversion_time___Single_ended v="492.31 us" />
         <Additional_conversion_time___Differential v="Differential mode not supported" />
         <group name="Compare settings">
           <Compare v="Disabled" />

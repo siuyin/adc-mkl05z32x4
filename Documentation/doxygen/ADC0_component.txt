@@ -19,7 +19,7 @@ by the component.
 <td class="regNotResetVal">0x08000001</td>
  <td>SIM_SCGC6 register, peripheral ADC0.</td></tr>
 <tr><td>0x4003B008</td><td>ADC0_CFG1</td>
-<td class="regNotResetVal">0x00000043</td>
+<td class="regNotResetVal">0x00000047</td>
  <td>ADC0_CFG1 register, peripheral ADC0.</td></tr>
 <tr><td>0x4003B00C</td><td>ADC0_CFG2</td>
 <td class="regResetVal">0x00000000</td>
@@ -157,7 +157,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4003B008</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000043</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000047</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>7</td><td>ADLPC</td><td>0x00</td><td>Low-Power Configuration</td>
@@ -597,15 +597,15 @@ registers of the peripheral(s) configured by the component.
 **              Long sample time                           : Disabled
 **              Long sample time length                    : 20 ADCK cycles
 **            Conversion mode                              : Single
-**            Result data format                           : 8-bit right
+**            Result data format                           : 12-bit right
 **            Low power mode                               : Disabled
 **            Conversion trigger                           : SW
 **            HW average settings                          : 
 **              HW average                                 : Enabled
 **              HW average length                          : 32 samples
-**            Single conversion time - Single-ended        : 427.52 us
+**            Single conversion time - Single-ended        : 501.36 us
 **            Single conversion time - Differential        : Differential mode not supported
-**            Additional conversion time - Single-ended    : 418.46 us
+**            Additional conversion time - Single-ended    : 492.31 us
 **            Additional conversion time - Differential    : Differential mode not supported
 **            Compare settings                             : 
 **              Compare                                    : Disabled

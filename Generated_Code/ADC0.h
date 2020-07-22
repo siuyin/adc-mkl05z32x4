@@ -7,7 +7,7 @@
 **     Version     : Component 01.012, Driver 01.12, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2020-07-22, 14:23, # CodeGen: 8
+**     Date/Time   : 2020-07-22, 16:08, # CodeGen: 9
 **     Abstract    :
 **          This file implements the ADC (ADC0) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -26,15 +26,15 @@
 **              Long sample time                           : Disabled
 **              Long sample time length                    : 20 ADCK cycles
 **            Conversion mode                              : Single
-**            Result data format                           : 8-bit right
+**            Result data format                           : 12-bit right
 **            Low power mode                               : Disabled
 **            Conversion trigger                           : SW
 **            HW average settings                          : 
 **              HW average                                 : Enabled
 **              HW average length                          : 32 samples
-**            Single conversion time - Single-ended        : 427.52 us
+**            Single conversion time - Single-ended        : 501.36 us
 **            Single conversion time - Differential        : Differential mode not supported
-**            Additional conversion time - Single-ended    : 418.46 us
+**            Additional conversion time - Single-ended    : 492.31 us
 **            Additional conversion time - Differential    : Differential mode not supported
 **            Compare settings                             : 
 **              Compare                                    : Disabled

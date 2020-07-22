@@ -3,7 +3,7 @@
   <Header>
     <Name>adc-mkl05z32x4</Name>
     <SavedBy>siuyin</SavedBy>
-    <ModificationStamp>9</ModificationStamp>
+    <ModificationStamp>10</ModificationStamp>
     <Date>2020-07-22</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1550-0615</PEversion>
@@ -4443,8 +4443,8 @@
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <TypeSpecNameState>typeResultDataFormats</TypeSpecNameState>
-        <Index>0</Index>
-        <EnumSymbVal>8bit</EnumSymbVal>
+        <Index>2</Index>
+        <EnumSymbVal>12bit</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>LowPower</ItemSymbol>
@@ -4490,7 +4490,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ConvTime0</ItemSymbol>
-        <Value>427.52 us</Value>
+        <Value>501.36 us</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>ConvTime1</ItemSymbol>
@@ -4498,7 +4498,7 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ConvTime2</ItemSymbol>
-        <Value>418.46 us</Value>
+        <Value>492.31 us</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>ConvTime3</ItemSymbol>

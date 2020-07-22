@@ -29,20 +29,20 @@
       <File Name="Generated_Code/Vectors.c" FileDate="2020-07-22, 12:27:21" FileAge="1595392041000" FileType="45637" CompNumb="2" />
       <File Name="Generated_Code/PE_Const.h" FileDate="2020-07-22, 11:48:46" FileAge="1595389726000" FileType="45637" />
       <File Name="Generated_Code/PE_Types.h" FileDate="2020-07-22, 11:48:46" FileAge="1595389726000" FileType="45637" />
-      <File Name="Generated_Code/ADC0.h" FileDate="2020-07-22, 14:23:56" FileAge="1595399036000" FileType="45637" CompNumb="3" />
+      <File Name="Generated_Code/ADC0.h" FileDate="2020-07-22, 16:08:28" FileAge="1595405308000" FileType="45637" CompNumb="3" />
       <File Name="Generated_Code/PE_Error.h" FileDate="2020-07-22, 11:48:46" FileAge="1595389726000" FileType="45637" />
       <File Name="Sources/Events.h" FileDate="2020-07-22, 12:27:21" FileAge="1595392041000" FileType="131328" />
       <File Name="Documentation/doxygen/RoutingReport_component.txt" FileDate="2020-07-22, 11:48:46" FileAge="1595389726000" FileType="45637" CompNumb="2" />
       <File Name="Generated_Code/PTB.h" FileDate="2020-07-22, 12:27:21" FileAge="1595392041000" FileType="45637" CompNumb="4" />
-      <File Name="Generated_Code/ADC0.c" FileDate="2020-07-22, 14:23:56" FileAge="1595399036000" FileType="45637" CompNumb="3" />
+      <File Name="Generated_Code/ADC0.c" FileDate="2020-07-22, 16:08:28" FileAge="1595405308000" FileType="45637" CompNumb="3" />
       <File Name="Static_Code/PDD/DMA_PDD.h" FileDate="2020-07-22, 11:48:45" FileAge="1595389725000" FileType="1048576" />
-      <File Name="Documentation/adc-mkl05z32x4_SIGNALS.txt" FileDate="2020-07-22, 14:23:56" FileAge="1595399036000" FileType="3072" />
+      <File Name="Documentation/adc-mkl05z32x4_SIGNALS.txt" FileDate="2020-07-22, 16:08:28" FileAge="1595405308000" FileType="3072" />
       <File Name="Sources/Events.c" FileDate="2020-07-22, 11:48:46" FileAge="1595389726000" FileType="131328" />
       <File Name="Static_Code/PDD/DMAMUX_PDD.h" FileDate="2020-07-22, 11:48:46" FileAge="1595389726000" FileType="1048576" />
       <File Name="Static_Code/PDD/ADC_PDD.h" FileDate="2020-07-22, 11:48:46" FileAge="1595389726000" FileType="1048576" />
       <File Name="Generated_Code/PTB.c" FileDate="2020-07-22, 12:27:21" FileAge="1595392041000" FileType="45637" CompNumb="4" />
-      <File Name="Sources/main.c" FileDate="2020-07-22, 14:16:00" FileAge="1595398560000" FileType="128" />
-      <File Name="Documentation/adc-mkl05z32x4_Settings.xml" FileDate="2020-07-22, 14:23:56" FileAge="1595399036000" FileType="3072" />
+      <File Name="Sources/main.c" FileDate="2020-07-22, 16:06:36" FileAge="1595405196000" FileType="128" />
+      <File Name="Documentation/adc-mkl05z32x4_Settings.xml" FileDate="2020-07-22, 16:08:28" FileAge="1595405308000" FileType="3072" />
       <File Name="Static_Code/PDD/DAC_PDD.h" FileDate="2020-07-22, 11:48:45" FileAge="1595389725000" FileType="1048576" />
       <File Name="Static_Code/PDD/MCM_PDD.h" FileDate="2020-07-22, 11:48:46" FileAge="1595389726000" FileType="1048576" />
       <File Name="Static_Code/PDD/MCG_PDD.h" FileDate="2020-07-22, 11:48:46" FileAge="1595389726000" FileType="1048576" />
@@ -69,11 +69,11 @@
       <File Name="Static_Code/PDD/SPI_PDD.h" FileDate="2020-07-22, 11:48:45" FileAge="1595389725000" FileType="1048576" />
       <File Name="Project_Settings/Startup_Code/startup.c" FileDate="2020-07-22, 11:48:44" FileAge="1595389724000" FileType="16384" CompNumb="2" />
       <File Name="Generated_Code/Cpu.h" FileDate="2020-07-22, 12:24:04" FileAge="1595391844000" FileType="45637" CompNumb="2" />
-      <File Name="Documentation/doxygen/ADC0_component.txt" FileDate="2020-07-22, 14:23:56" FileAge="1595399036000" FileType="45637" CompNumb="3" />
+      <File Name="Documentation/doxygen/ADC0_component.txt" FileDate="2020-07-22, 16:08:28" FileAge="1595405308000" FileType="45637" CompNumb="3" />
       <File Name="Generated_Code/Cpu.c" FileDate="2020-07-22, 12:28:51" FileAge="1595392131000" FileType="45637" CompNumb="2" />
       <File Name="Static_Code/PDD/LPTMR_PDD.h" FileDate="2020-07-22, 11:48:45" FileAge="1595389725000" FileType="1048576" />
       <File Name="Static_Code/PDD/COP_PDD.h" FileDate="2020-07-22, 11:48:46" FileAge="1595389726000" FileType="1048576" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>9</CodeGenReference>
+  <CodeGenReference>10</CodeGenReference>
 </CodeGenerationInfo>

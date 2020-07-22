@@ -117,8 +117,8 @@ PE_DEBUGHALT();
         <Clock_gate v="Enabled" />
         <group name="Clock settings">
           <Input_clock_select v="Asynchro clock" />
-          <Prescaler v="divide by 1" />
-          <Frequency v="5200 kHz" />
+          <Prescaler v="divide by 4" />
+          <Frequency v="1300 kHz" />
           <High_speed_conversion v="Disabled" />
           <Asynchro_clock_output v="Disabled" />
           <Long_sample_time v="Disabled" />
@@ -129,12 +129,12 @@ PE_DEBUGHALT();
         <Low_power_mode v="Disabled" />
         <Conversion_trigger v="SW" />
         <group name="HW average settings">
-          <HW_average v="Disabled" />
-          <HW_average_length v="4 samples" />
+          <HW_average v="Enabled" />
+          <HW_average_length v="32 samples" />
         </group>
-        <Single_conversion_time___Single_ended v="9.44 us" />
+        <Single_conversion_time___Single_ended v="427.52 us" />
         <Single_conversion_time___Differential v="Differential mode not supported" />
-        <Additional_conversion_time___Single_ended v="3.27 us" />
+        <Additional_conversion_time___Single_ended v="418.46 us" />
         <Additional_conversion_time___Differential v="Differential mode not supported" />
         <group name="Compare settings">
           <Compare v="Disabled" />
