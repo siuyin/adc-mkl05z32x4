@@ -65,9 +65,10 @@ void UpdateLEDTask(void) {
 	}
 	nrt += 20;
 
-	if (ADCResult > 2047) {
+	// Threshold around 2047 with hystersis.
+	if (ADCResult > 2057) {
 		GPIO_PDD_ClearPortDataOutputMask(GPIOB_BASE_PTR, GPIO_PDD_PIN_8);
-	} else {
+	} else if (ADCResult < 2037) {
 		GPIO_PDD_SetPortDataOutputMask(GPIOB_BASE_PTR, GPIO_PDD_PIN_8);
 	}
 
