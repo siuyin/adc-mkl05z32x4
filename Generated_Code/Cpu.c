@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL05P48M48SF1RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2020-07-22, 12:28, # CodeGen: 4
+**     Date/Time   : 2020-07-22, 16:35, # CodeGen: 10
 **     Abstract    :
 **
 **     Settings    :
@@ -207,7 +207,7 @@
 **                MCGFFCLK [kHz]                           : 32.768
 **              System clocks                              : 
 **                Core clock prescaler                     : Auto select
-**                Core clock                               : 23.986176
+**                Core clock                               : 47.972352
 **                Bus clock prescaler                      : Auto select
 **                Bus clock                                : 23.986176
 **                TPM clock selection                      : Auto select
@@ -262,6 +262,7 @@
 /* {Default RTOS Adapter} No RTOS includes */
 #include "ADC0.h"
 #include "PTB.h"
+#include "SysTick.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -333,8 +334,8 @@ void __init_hardware(void)
     /* PMC_REGSC: ACKISO=1 */
     PMC_REGSC |= PMC_REGSC_ACKISO_MASK; /* Release IO pads after wakeup from VLLS mode. */
   }
-  /* SIM_CLKDIV1: OUTDIV1=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
-  SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x01) | SIM_CLKDIV1_OUTDIV4(0x00)); /* Update system prescalers */
+  /* SIM_CLKDIV1: OUTDIV1=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,OUTDIV4=1,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0 */
+  SIM_CLKDIV1 = (SIM_CLKDIV1_OUTDIV1(0x00) | SIM_CLKDIV1_OUTDIV4(0x01)); /* Update system prescalers */
   /* SIM_SOPT1: OSC32KSEL=0 */
   SIM_SOPT1 &= (uint32_t)~(uint32_t)(SIM_SOPT1_OSC32KSEL(0x03)); /* System oscillator drives 32 kHz clock for various peripherals */
   /* SIM_SOPT2: TPMSRC=1 */
@@ -488,6 +489,8 @@ void PE_low_level_init(void)
                 )) | (uint32_t)(
                  PORT_PCR_MUX(0x01)
                 ));
+  /* SCB_SHPR3: PRI_15=0 */
+  SCB_SHPR3 &= (uint32_t)~(uint32_t)(SCB_SHPR3_PRI_15(0xFF));
   /* PORTA_PCR1: ISF=0,MUX=3 */
   PORTA_PCR1 = (uint32_t)((PORTA_PCR1 & (uint32_t)~(uint32_t)(
                 PORT_PCR_ISF_MASK |
@@ -503,6 +506,10 @@ void PE_low_level_init(void)
 
   /* ### Init_GPIO "PTB" init code ... */
   PTB_Init();
+
+
+  /* ### Init_SysTick "SysTick" init code ... */
+  SysTick_Init();
 
 
   __EI();

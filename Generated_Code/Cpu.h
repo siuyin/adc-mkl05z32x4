@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL05P48M48SF1RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2020-07-22, 12:23, # CodeGen: 2
+**     Date/Time   : 2020-07-22, 16:35, # CodeGen: 10
 **     Abstract    :
 **
 **     Settings    :
@@ -84,12 +84,12 @@ extern "C" {
 #define Cpu_OnNMIINT_EVENT_ENABLED
 
 #define CPU_BUS_CLK_HZ                  23986176U /* Initial value of the bus clock frequency in Hz */
-#define CPU_CORE_CLK_HZ                 23986176U /* Initial value of the core/system clock frequency in Hz.  */
+#define CPU_CORE_CLK_HZ                 47972352U /* Initial value of the core/system clock frequency in Hz.  */
 
 #define CPU_CLOCK_CONFIG_NUMBER         0x01U /* Specifies number of defined clock configurations. */
 
 #define CPU_BUS_CLK_HZ_CLOCK_CONFIG0    23986176U /* Value of the bus clock frequency in the clock configuration 0 in Hz. */
-#define CPU_CORE_CLK_HZ_CLOCK_CONFIG0   23986176U /* Value of the core/system clock frequency in the clock configuration 0 in Hz. */
+#define CPU_CORE_CLK_HZ_CLOCK_CONFIG0   47972352U /* Value of the core/system clock frequency in the clock configuration 0 in Hz. */
 
 
 #define CPU_XTAL_CLK_HZ                 32768U /* Value of the external crystal or oscillator clock frequency in Hz */
@@ -103,7 +103,7 @@ extern "C" {
 
 /* CPU frequencies in clock configuration 0 */
 #define CPU_CLOCK_CONFIG_0              0x00U /* Clock configuration 0 identifier */
-#define CPU_CORE_CLK_HZ_CONFIG_0        23986176UL /* Core clock frequency in clock configuration 0 */
+#define CPU_CORE_CLK_HZ_CONFIG_0        47972352UL /* Core clock frequency in clock configuration 0 */
 #define CPU_BUS_CLK_HZ_CONFIG_0         23986176UL /* Bus clock frequency in clock configuration 0 */
 #define CPU_FLEXBUS_CLK_HZ_CONFIG_0     0UL /* Flexbus clock frequency in clock configuration 0 */
 #define CPU_FLASH_CLK_HZ_CONFIG_0       0UL /* FLASH clock frequency in clock configuration 0 */

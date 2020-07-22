@@ -28,7 +28,7 @@
           </enumgroup>
           <group name="System clocks">
             <Core_clock_prescaler v="Auto select" />
-            <Core_clock v="23.986176000000" />
+            <Core_clock v="47.972352000000" />
             <Bus_clock_prescaler v="Auto select" />
             <Bus_clock v="23.986176000000" />
             <enumgroup name="TPM clock selection" v="Auto select">
@@ -125,16 +125,16 @@ PE_DEBUGHALT();
           <Long_sample_time_length v="20 ADCK cycles" />
         </group>
         <Conversion_mode v="Single" />
-        <Result_data_format v="8-bit right" />
+        <Result_data_format v="12-bit right" />
         <Low_power_mode v="Disabled" />
         <Conversion_trigger v="SW" />
         <group name="HW average settings">
           <HW_average v="Enabled" />
           <HW_average_length v="32 samples" />
         </group>
-        <Single_conversion_time___Single_ended v="427.52 us" />
+        <Single_conversion_time___Single_ended v="501.36 us" />
         <Single_conversion_time___Differential v="Differential mode not supported" />
-        <Additional_conversion_time___Single_ended v="418.46 us" />
+        <Additional_conversion_time___Single_ended v="492.31 us" />
         <Additional_conversion_time___Differential v="Differential mode not supported" />
         <group name="Compare settings">
           <Compare v="Disabled" />
@@ -292,6 +292,35 @@ PE_DEBUGHALT();
         <boolgroup name="Port interrupt" v="Disabled" />
       </group>
       <group name="Initialization">
+        <Call_Init_method v="yes" />
+      </group>
+    </Properties>
+    <Methods>
+      <Init v="generate code" />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="SysTick" type="Init_SysTick">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="SysTick" />
+      <Device v="SysTick" />
+      <group name="Settings">
+        <Clock_source v="Processor clock" />
+        <Reload_value v="47972" />
+        <Counter_period v="1.000 ms" />
+      </group>
+      <group name="Interrupts">
+        <Interrupt v="INT_SysTick" />
+        <Interrupt_priority v="0 (Highest)" />
+        <ISR_Name v="sysTickISR" />
+        <Timer_interrupt v="Enabled" />
+      </group>
+      <group name="Initialization">
+        <Timer_enable v="no" />
+        <Clear_counter v="yes" />
         <Call_Init_method v="yes" />
       </group>
     </Properties>
