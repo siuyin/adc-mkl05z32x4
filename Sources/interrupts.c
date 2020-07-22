@@ -25,7 +25,7 @@ void sysTickISR(void) {
 	tick++;
 }
 
-extern volatile unsigned int ADCResult;
+
 void adcISR(void) {
 	ADCResult = ADC_PDD_GetResultValueRaw(ADC0_BASE_PTR, 0);
 }

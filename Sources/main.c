@@ -43,6 +43,8 @@
 #include "interrupts.h"
 
 volatile unsigned int ADCResult;
+// SenseADCInputTask starts a conversion on ADC single-ended channel 6.
+// The result, ADCResult, is updated by adcISR the ADC interrupt service routine.
 void SenseADCInputTask(void) {
 	static unsigned int nrt;
 	if (tick != nrt) {
@@ -50,13 +52,12 @@ void SenseADCInputTask(void) {
 	}
 	nrt += 50;
 
-	ADC_PDD_WriteStatusControl1Reg(ADC0_BASE_PTR, 0, ADC_PDD_SINGLE_ENDED_AD6 + (1<<6));	// start conversion, (1<<6)=enable conversion complete interrupt
-	//while (!ADC_PDD_GetConversionCompleteFlag(ADC0_BASE_PTR, 0))
-	//	;	// wait for conversion to complete
-	//ADCResult = ADC_PDD_GetResultValueRaw(ADC0_BASE_PTR, 0);
+	ADC_PDD_WriteStatusControl1Reg(ADC0_BASE_PTR, 0,
+			ADC_PDD_SINGLE_ENDED_AD6 + (1<<6));	// start conversion, (1<<6)=enable conversion complete interrupt
 
 }
 
+// UpdateLEDTask turns on the red LED if the value of ADCResult is above a set threshold.
 void UpdateLEDTask(void) {
 	static unsigned int nrt; // next run tick
 	if (tick != nrt) {
@@ -84,21 +85,21 @@ int main(void)
 
 	/* Write your code here */
 
-	// GPIO_PDD_ClearPortDataOutputMask(GPIOB_BASE_PTR,GPIO_PDD_PIN_8);	// turn on red LED
 	while (1) {
 		SenseADCInputTask();
 		UpdateLEDTask();
 	}
 
 	/*** Don't write any code pass this line, or it will be deleted during code generation. ***/
-  /*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
-  #ifdef PEX_RTOS_START
-    PEX_RTOS_START();                  /* Startup of the selected RTOS. Macro is defined by the RTOS component. */
-  #endif
-  /*** End of RTOS startup code.  ***/
-  /*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
-  for(;;){}
-  /*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
+	/*** RTOS startup code. Macro PEX_RTOS_START is defined by the RTOS component. DON'T MODIFY THIS CODE!!! ***/
+#ifdef PEX_RTOS_START
+	PEX_RTOS_START(); /* Startup of the selected RTOS. Macro is defined by the RTOS component. */
+#endif
+	/*** End of RTOS startup code.  ***/
+	/*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
+	for (;;) {
+	}
+	/*** Processor Expert end of main routine. DON'T WRITE CODE BELOW!!! ***/
 } /*** End of main routine. DO NOT MODIFY THIS TEXT!!! ***/
 
 /* END main */
