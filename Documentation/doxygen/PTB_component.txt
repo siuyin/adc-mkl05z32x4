@@ -16,13 +16,13 @@ by the component.
 <tr><td colspan="4" class="ttitle1">PTB Initialization</td></tr>
 <tr><td class="ttitle2">Address</td><td class="ttitle2">Register</td><td class="ttitle2">Register Value</td><td class="ttitle2">Register Description</td></tr>
 <tr><td>0x400FF044</td><td>GPIOB_PSOR</td>
-<td class="regNotResetVal">0x00000700</td>
+<td class="regNotResetVal">0x00000500</td>
  <td>GPIOB_PSOR register, peripheral PTB.</td></tr>
 <tr><td>0x400FF048</td><td>GPIOB_PCOR</td>
 <td class="regResetVal">0x00000000</td>
  <td>GPIOB_PCOR register, peripheral PTB.</td></tr>
 <tr><td>0x400FF054</td><td>GPIOB_PDDR</td>
-<td class="regNotResetVal">0x00000700</td>
+<td class="regNotResetVal">0x00000500</td>
  <td>GPIOB_PDDR register, peripheral PTB.</td></tr>
 </table>
 Color Denotes Reset Value
@@ -70,7 +70,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x400FF044</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000700</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000500</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>0 - 31</td><td>PTSO</td><td>0x00</td><td>Port Set Output</td>
@@ -156,7 +156,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x400FF054</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000700</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000500</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>0 - 31</td><td>PDD</td><td>0x00</td><td>Port Data Direction</td>
@@ -182,12 +182,7 @@ registers of the peripheral(s) configured by the component.
 **              Pull resistor                              : No initialization
 **              Pull selection                             : Pull Down
 **              Slew rate                                  : No initialization
-**            Pin 9                                        : Initialize
-**              Pin direction                              : Output
-**              Output value                               : 1
-**              Pull resistor                              : No initialization
-**              Pull selection                             : Pull Down
-**              Slew rate                                  : No initialization
+**            Pin 9                                        : Do not initialize
 **            Pin 10                                       : Initialize
 **              Pin direction                              : Output
 **              Output value                               : 1
@@ -216,9 +211,7 @@ registers of the peripheral(s) configured by the component.
 **            Pin 8                                        : Enabled
 **              Pin                                        : ADC0_SE11/PTB8/TPM0_CH3
 **              Pin signal                                 : 
-**            Pin 9                                        : Enabled
-**              Pin                                        : ADC0_SE10/PTB9/TPM0_CH2
-**              Pin signal                                 : 
+**            Pin 9                                        : Disabled
 **            Pin 10                                       : Enabled
 **              Pin                                        : ADC0_SE9/TSI0_IN7/PTB10/TPM0_CH1
 **              Pin signal                                 : 

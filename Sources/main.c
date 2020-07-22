@@ -32,6 +32,7 @@
 #include "ADC0.h"
 #include "PTB.h"
 #include "SysTick.h"
+#include "TPM0.h"
 /* Including shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -40,6 +41,7 @@
 /* User includes (#include below this line is not maintained by Processor Expert) */
 #include "GPIO_PDD.h"
 #include "ADC_PDD.h"
+#include "TPM_PDD.h"
 #include "interrupts.h"
 
 volatile unsigned int ADCResult;
@@ -74,6 +76,16 @@ void UpdateLEDTask(void) {
 
 }
 
+void UpdateLEDPWMTask(void) {
+	static unsigned int nrt; // next run tick
+	if (tick != nrt) {
+		return;
+	}
+	nrt += 20;
+
+	TPM_PDD_WriteChannelValueReg(TPM0_BASE_PTR, 2, (ADCResult << 4));
+}
+
 /*lint -save  -e970 Disable MISRA rule (6.3) checking. */
 int main(void)
 /*lint -restore Enable MISRA rule (6.3) checking. */
@@ -86,9 +98,11 @@ int main(void)
 
 	/* Write your code here */
 
+	TPM_PDD_WriteChannelValueReg(TPM0_BASE_PTR, 2, 0x7fff);
 	while (1) {
 		SenseADCInputTask();
-		UpdateLEDTask();
+		//UpdateLEDTask();
+		UpdateLEDPWMTask();
 	}
 
 	/*** Don't write any code pass this line, or it will be deleted during code generation. ***/

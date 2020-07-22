@@ -7,7 +7,7 @@
 **     Version     : Component 01.006, Driver 01.06, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2020-07-22, 12:27, # CodeGen: 3
+**     Date/Time   : 2020-07-23, 00:23, # CodeGen: 23
 **     Abstract    :
 **          This file implements the GPIO (PTB) module initialization
 **          according to the Peripheral Initialization settings, and
@@ -30,12 +30,7 @@
 **              Pull resistor                              : No initialization
 **              Pull selection                             : Pull Down
 **              Slew rate                                  : No initialization
-**            Pin 9                                        : Initialize
-**              Pin direction                              : Output
-**              Output value                               : 1
-**              Pull resistor                              : No initialization
-**              Pull selection                             : Pull Down
-**              Slew rate                                  : No initialization
+**            Pin 9                                        : Do not initialize
 **            Pin 10                                       : Initialize
 **              Pin direction                              : Output
 **              Output value                               : 1
@@ -64,9 +59,7 @@
 **            Pin 8                                        : Enabled
 **              Pin                                        : ADC0_SE11/PTB8/TPM0_CH3
 **              Pin signal                                 : 
-**            Pin 9                                        : Enabled
-**              Pin                                        : ADC0_SE10/PTB9/TPM0_CH2
-**              Pin signal                                 : 
+**            Pin 9                                        : Disabled
 **            Pin 10                                       : Enabled
 **              Pin                                        : ADC0_SE9/TSI0_IN7/PTB10/TPM0_CH1
 **              Pin signal                                 : 

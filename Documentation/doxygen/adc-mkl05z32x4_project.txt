@@ -25,6 +25,7 @@
 - \subpage ADC0
 - \subpage PTB
 - \subpage SysTick
+- \subpage TPM0
 
 */
 

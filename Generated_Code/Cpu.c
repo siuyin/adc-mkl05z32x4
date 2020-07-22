@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : KL05P48M48SF1RM, Rev.3, Sep 2012
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2020-07-22, 16:58, # CodeGen: 12
+**     Date/Time   : 2020-07-23, 00:40, # CodeGen: 25
 **     Abstract    :
 **
 **     Settings    :
@@ -164,7 +164,7 @@
 **                FTFA clock gate                          : Enabled
 **                DMA_MULTIPLEXOR0 clock gate              : Disabled
 **                PIT clock gate                           : Disabled
-**                TPM0 clock gate                          : Disabled
+**                TPM0 clock gate                          : Enabled
 **                TPM1 clock gate                          : Disabled
 **                ADC0 clock gate                          : Enabled
 **                RTC clock gate                           : Disabled
@@ -263,6 +263,7 @@
 #include "ADC0.h"
 #include "PTB.h"
 #include "SysTick.h"
+#include "TPM0.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -408,16 +409,16 @@ void PE_low_level_init(void)
                SIM_SCGC5_PORTB_MASK |
                SIM_SCGC5_PORTA_MASK
               ));
-  /* SIM_SCGC6: DAC0=0,RTC=0,ADC0=1,TPM1=0,TPM0=0,PIT=0,DMAMUX=0,FTF=1 */
+  /* SIM_SCGC6: DAC0=0,RTC=0,ADC0=1,TPM1=0,TPM0=1,PIT=0,DMAMUX=0,FTF=1 */
   SIM_SCGC6 = (uint32_t)((SIM_SCGC6 & (uint32_t)~(uint32_t)(
                SIM_SCGC6_DAC0_MASK |
                SIM_SCGC6_RTC_MASK |
                SIM_SCGC6_TPM1_MASK |
-               SIM_SCGC6_TPM0_MASK |
                SIM_SCGC6_PIT_MASK |
                SIM_SCGC6_DMAMUX_MASK
               )) | (uint32_t)(
                SIM_SCGC6_ADC0_MASK |
+               SIM_SCGC6_TPM0_MASK |
                SIM_SCGC6_FTF_MASK
               ));
   /* PORTB_PCR5: ISF=0,MUX=3 */
@@ -475,14 +476,6 @@ void PE_low_level_init(void)
                )) | (uint32_t)(
                 PORT_PCR_MUX(0x01)
                ));
-  /* PORTB_PCR9: ISF=0,MUX=1,PS=0 */
-  PORTB_PCR9 = (uint32_t)((PORTB_PCR9 & (uint32_t)~(uint32_t)(
-                PORT_PCR_ISF_MASK |
-                PORT_PCR_MUX(0x06) |
-                PORT_PCR_PS_MASK
-               )) | (uint32_t)(
-                PORT_PCR_MUX(0x01)
-               ));
   /* PORTB_PCR10: ISF=0,MUX=1,PS=0 */
   PORTB_PCR10 = (uint32_t)((PORTB_PCR10 & (uint32_t)~(uint32_t)(
                  PORT_PCR_ISF_MASK |
@@ -493,6 +486,15 @@ void PE_low_level_init(void)
                 ));
   /* SCB_SHPR3: PRI_15=0 */
   SCB_SHPR3 &= (uint32_t)~(uint32_t)(SCB_SHPR3_PRI_15(0xFF));
+  /* PORTB_PCR9: ISF=0,MUX=2 */
+  PORTB_PCR9 = (uint32_t)((PORTB_PCR9 & (uint32_t)~(uint32_t)(
+                PORT_PCR_ISF_MASK |
+                PORT_PCR_MUX(0x05)
+               )) | (uint32_t)(
+                PORT_PCR_MUX(0x02)
+               ));
+  /* NVIC_IPR4: PRI_17=0 */
+  NVIC_IPR4 &= (uint32_t)~(uint32_t)(NVIC_IP_PRI_17(0xFF));
   /* PORTA_PCR1: ISF=0,MUX=3 */
   PORTA_PCR1 = (uint32_t)((PORTA_PCR1 & (uint32_t)~(uint32_t)(
                 PORT_PCR_ISF_MASK |
@@ -512,6 +514,10 @@ void PE_low_level_init(void)
 
   /* ### Init_SysTick "SysTick" init code ... */
   SysTick_Init();
+
+
+  /* ### Init_TPM "TPM0" init code ... */
+  TPM0_Init();
 
 
   __EI();

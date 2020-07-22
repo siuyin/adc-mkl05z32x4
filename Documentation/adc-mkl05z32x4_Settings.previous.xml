@@ -187,10 +187,10 @@ PE_DEBUGHALT();
       </group>
       <group name="Interrupts/DMA">
         <Interrupt v="INT_ADC0" />
-        <Interrupt_request v="Disabled" />
+        <Interrupt_request v="Enabled" />
         <Interrupt_priority v="0 (Highest)" />
-        <ISR_name v="" />
-        <Conversion_complete_A_interrupt v="Disabled" />
+        <ISR_name v="adcISR" />
+        <Conversion_complete_A_interrupt v="Enabled" />
         <Conversion_complete_B_interrupt v="Disabled" />
         <DMA_request v="Disabled" />
       </group>
@@ -234,13 +234,7 @@ PE_DEBUGHALT();
           <Pull_selection v="Pull Down" />
           <Slew_rate v="No initialization" />
         </boolgroup>
-        <boolgroup name="Pin 9" v="Initialize">
-          <Pin_direction v="Output" />
-          <Output_value v="1" />
-          <Pull_resistor v="No initialization" />
-          <Pull_selection v="Pull Down" />
-          <Slew_rate v="No initialization" />
-        </boolgroup>
+        <boolgroup name="Pin 9" v="Do not initialize" />
         <boolgroup name="Pin 10" v="Initialize">
           <Pin_direction v="Output" />
           <Output_value v="1" />
@@ -271,9 +265,7 @@ PE_DEBUGHALT();
         <boolgroup name="Pin 8" v="Enabled">
           <Pin v="ADC0_SE11/PTB8/TPM0_CH3" />
         </boolgroup>
-        <boolgroup name="Pin 9" v="Enabled">
-          <Pin v="ADC0_SE10/PTB9/TPM0_CH2" />
-        </boolgroup>
+        <boolgroup name="Pin 9" v="Disabled" />
         <boolgroup name="Pin 10" v="Enabled">
           <Pin v="ADC0_SE9/TSI0_IN7/PTB10/TPM0_CH1" />
         </boolgroup>
@@ -321,6 +313,74 @@ PE_DEBUGHALT();
       <group name="Initialization">
         <Timer_enable v="yes" />
         <Clear_counter v="yes" />
+        <Call_Init_method v="yes" />
+      </group>
+    </Properties>
+    <Methods>
+      <Init v="generate code" />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="TPM0" type="Init_TPM">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="TPM0" />
+      <Device v="TPM0" />
+      <group name="Settings">
+        <Clock_gate v="Enabled" />
+        <group name="Clock settings">
+          <Clock_source v="TPM counter clock" />
+          <Prescaler v="divide by 1" />
+          <Counter_frequency v="47.972 MHz" />
+          <Modulo_counter v="65535" />
+          <Period v="1.366 ms" />
+        </group>
+        <DBG_mode v="TPM counter stopped; output pins remain the same" />
+        <Global_time_base v="Disabled" />
+        <Counter_reload_on_trigger v="Disabled" />
+        <Counter_start_on_trigger v="Disabled" />
+        <Counter_stop_on_overflow v="Disabled" />
+        <Counter_in_Doze_mode v="Enabled" />
+      </group>
+      <group name="Channels">
+        <boolgroup name="Channel 0" v="Disabled" />
+        <boolgroup name="Channel 1" v="Disabled" />
+        <boolgroup name="Channel 2" v="Enabled">
+          <enumgroup name="Channel mode" v="Edge-aligned PWM">
+            <PWM_polarity v="High-true" />
+            <Channel_value_register v="32768" />
+          </enumgroup>
+          <boolgroup name="Pin" v="Enabled">
+            <Pin v="ADC0_SE10/PTB9/TPM0_CH2" />
+          </boolgroup>
+          <group name="Interrupt/DMA">
+            <Interrupt v="INT_TPM0" />
+            <Channel_interrupt v="Disabled" />
+            <DMA_request v="Disabled" />
+          </group>
+        </boolgroup>
+        <boolgroup name="Channel 3" v="Disabled" />
+        <boolgroup name="Channel 4" v="Disabled" />
+        <boolgroup name="Channel 5" v="Disabled" />
+      </group>
+      <group name="Pins">
+        <boolgroup name="External clock pin" v="Disabled" />
+        <boolgroup name="HW Synchronization trigger" v="Disabled" />
+      </group>
+      <group name="Interrupts">
+        <group name="Channels / Timer overflow / Fault">
+          <Interrupt v="INT_TPM0" />
+          <Interrupt_request v="Disabled" />
+          <Interrupt_priority v="0 (Highest)" />
+          <ISR_Name v="" />
+          <Channels_interrupt_DMA v="See the respective Channel settings" />
+          <Timer_overflow_DMA v="Disabled" />
+          <Timer_overflow_interrupt v="Disabled" />
+        </group>
+      </group>
+      <group name="Initialization">
         <Call_Init_method v="yes" />
       </group>
     </Properties>

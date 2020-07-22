@@ -6,7 +6,7 @@
 **     Version     : Component 01.000, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2020-07-22, 16:35, # CodeGen: 10
+**     Date/Time   : 2020-07-22, 22:43, # CodeGen: 13
 **     Abstract    :
 **
 **     Settings    :
@@ -64,6 +64,7 @@
 #include "ADC0.h"
 #include "PTB.h"
 #include "SysTick.h"
+#include "TPM0.h"
 
 
 /*

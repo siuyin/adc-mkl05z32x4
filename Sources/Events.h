@@ -36,6 +36,7 @@
 #include "ADC0.h"
 #include "PTB.h"
 #include "SysTick.h"
+#include "TPM0.h"
 
 #ifdef __cplusplus
 extern "C" {
