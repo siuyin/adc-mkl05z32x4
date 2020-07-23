@@ -101,7 +101,7 @@ int main(void)
 	TPM_PDD_WriteChannelValueReg(TPM0_BASE_PTR, 2, 0x7fff);
 	while (1) {
 		SenseADCInputTask();
-		//UpdateLEDTask();
+		UpdateLEDTask();
 		UpdateLEDPWMTask();
 	}
 
